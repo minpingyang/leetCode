@@ -15,14 +15,17 @@
 public class Solution {
     public boolean isPalindrome(String s) {
         // if s is null
-        if(s == null)
-            return true;
+        if(s == null) return true;
         //else
-        String strings[] = s.split(",");
-        for(String s: strings){
-            String innerStrings[] = strings.split(" ");
-            innerStrings[0].equalsIgnoreCase("a");
+        String strings[] = s.split(", ");
+        for(i = 0; i< strings.length()-1;i++){
+	        String s1[] = strings[i].split(" ");
+	        String s2[] = strings[i+1].split(" ");
+	        if(s1[1]!=s2[1]){
+	        	return false;
+	        }
         }
+        return true;
         
     }
 }
