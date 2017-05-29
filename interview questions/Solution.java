@@ -14,13 +14,18 @@
 
 class Test{
     public boolean isPalindrome(String s) {
-        // if s is empty
-        if(s.isEmpty()==0 || s.trim().length() == 0) return true;
+        // if s is empty or spaces
+        if(s.isEmpty() || s.trim().length() == 0) return true;
+
         //if s only has spaces
 
         //else
         String strings[] = s.split(", ");
         if(strings.length == 1){
+            String firstC[] = strings[0].split(" ");
+            if(firstC.length==1){
+                return true;
+            }
             return false;
         }
         for(int i = 0; i< strings.length-1;i++){
@@ -52,3 +57,32 @@ public class Solution {
         
     }
 }
+
+
+
+// public class Solution {
+//     public boolean isPalindrome(String s) {
+//         if (s.isEmpty()) {
+//             return true;
+//         }
+//         int head = 0, tail = s.length() - 1;
+//         char cHead, cTail;
+//         while(head <= tail) {
+//             cHead = s.charAt(head);
+//             cTail = s.charAt(tail);
+//             if (!Character.isLetterOrDigit(cHead)) {
+//                 head++;
+//             } else if(!Character.isLetterOrDigit(cTail)) {
+//                 tail--;
+//             } else {
+//                 if (Character.toLowerCase(cHead) != Character.toLowerCase(cTail)) {
+//                     return false;
+//                 }
+//                 head++;
+//                 tail--;
+//             }
+//         }
+        
+//         return true;
+//     }
+// }
